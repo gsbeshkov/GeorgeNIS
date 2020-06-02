@@ -1,4 +1,3 @@
-GIVE A PROPER NAME 
 
 class ErrorCodes:
     """static class and global holder"""

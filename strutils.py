@@ -7,6 +7,7 @@ class Utils:
             len +=1
         return len
 
+
     @staticmethod
     def cmp(s1, s2):
         if Utils.len(s1) != Utils.len(s2):

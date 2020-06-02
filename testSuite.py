@@ -1,7 +1,6 @@
-GIVE A PROPER NAME
 
-from class1 import Command
-from class3 import ErrorCodes
+from Command import Command
+from ErrorCodes import ErrorCodes
 
 class TestSuite(object):
     """description of class"""

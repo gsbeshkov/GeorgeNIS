@@ -16,7 +16,7 @@ def find_n2(str_, pat_, n):
     # first entry, second entry, N-th entry... what to do?
     print("Itteration number: ", n) #hint 
     found = Utils.find(str_, pat_)
-    if found is not None:
+    if found is not None and n > 0:
         #we have at least one match 
         find_n2(str_[found+Utils.len(pat_):Utils.len(str_)], pat_, n-1)
     else: #modify states !!!
@@ -25,4 +25,7 @@ def find_n2(str_, pat_, n):
 
 
 if __name__ == "__main__":
-    find_n2(TEST_STR, "123", 3)
+    if find_n2(TEST_STR, "123", 3) is True:
+        print("test ok")
+    else:
+        print("test fail")

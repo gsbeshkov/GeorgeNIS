@@ -1,5 +1,4 @@
 
-GIVE A PROPER NAME 
 import os
 import subprocess
 
