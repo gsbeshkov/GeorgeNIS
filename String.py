@@ -13,7 +13,13 @@ class String:
     
     #design this function as smart as possible 
     def cmp(self, s1, s2):
-        return (Utils.len(s1)) != (Utils.len(s2)) #compare the two objects, and return True or False
+        #1 why do we need 2 arguments?
+        #2 Do we really compared the strings?
+        #3 Did you use member function len?
+        #4 Did you forget self.m_data
+        #5 why compare strings but not our String object?
+        #6 see testcae1() funtion
+        return (Utils.len(s1)) == (Utils.len(s2)) #compare the two objects, and return True or False
         
         
     
@@ -34,6 +40,15 @@ def foo(): #fucntion scope
     #Python difference between __new__ and __init__
     st = String("foo")
     return st
+
+def testcase1():
+    s1 = String("abc")
+    s2 = String("def")
+    #1 are those 2 strings really equall? Your compare shows that they are but they are not.
+    if s1.cmp(s2.m_data, s1.m_data) is True:
+        print("equall")
+    else:
+        print("not equal")
 
 TEST_STR = "123456789A123456789B123456789C"    
 
@@ -58,6 +73,8 @@ if __name__ == "__main__":
     print (f1.len())
     
     print(TEST_STR)
+
+    testcase1()
 
     
     
