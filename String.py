@@ -12,69 +12,74 @@ class String:
         self.m_data = data
     
     #design this function as smart as possible 
-    def cmp(self, s1, s2):
-        #1 why do we need 2 arguments?
-        #2 Do we really compared the strings?
-        #3 Did you use member function len?
-        #4 Did you forget self.m_data
-        #5 why compare strings but not our String object?
-        #6 see testcae1() funtion
-        return (Utils.len(s1)) == (Utils.len(s2)) #compare the two objects, and return True or False
+    def __eq__(self, other):        
+        return Utils.cmp(self.m_data, other.m_data) #compare the two objects, and return True or False
+        
+    def __lt__(self, other):
+        if self.m_data == other:
+            pass
+        else:
+         return self.m_data[0] < other.m_data[0]
         
         
-    
+    def find_chr(self, chr): #homework
+        pass
+            
     def find(self, pat):
         return Utils.find(self.m_data, pat)
     
     def len(self):
         return Utils.len(self.m_data)
     
-    def badfoo(self):
-        self.m_data = "bad data"
+    
+class StringBuilder:
+    # builds a complete string from string chunks 
+    def __init__(self):
+        self.m_data = []
+    
+    def add(self, st):
+        if st is None:
+           st = []
+        st.append(st)
+        #optional - improve add
+        # too long or somethig else - be creative
+        if len(st) == 0:
+            return self
         
-    def __del__(self):
-        """what is this?"""
-        print("~") 
+        self.m_data.append(st)
+        return self
+    
+    def begin(self):
+        #homework - find the problem and design it accordingly
+        if len(self.m_data) > 0:
+            self.m_data = None
+            self.m_data = []
+        return self
+    
+    def build(self): 
+        # homework
+        # what do we need to do ?
+        s = String(" ")
+        for a in self.m_data:
+            s.m_data += a.m_data
+        self.m_data = None
+        return s
+    
 
-def foo(): #fucntion scope
-    #Python difference between __new__ and __init__
-    st = String("foo")
-    return st
-
-def testcase1():
-    s1 = String("abc")
-    s2 = String("def")
-    #1 are those 2 strings really equall? Your compare shows that they are but they are not.
-    if s1.cmp(s2.m_data, s1.m_data) is True:
-        print("equall")
-    else:
-        print("not equal")
-
-TEST_STR = "123456789A123456789B123456789C"    
 
 if __name__ == "__main__":
-    st = foo()
-    # 1 research case
-    for i in range(0, 10):
-        s = String(str(i)) #why __del__ called
     
-    f = String(TEST_STR)
-    f.badfoo()
-    print(f.m_data)
-    tmp = f.find("123")
-    print("tmp is: ", tmp)
-    print (f.len())
+    #debug and improve the class     
+    sb = StringBuilder()
     
-    f1 = String("123456789A123456789B123456789C")
-    f1.badfoo()
-    print(f1.m_data)
-    tmp1 = f.find("123")
-    print("tmp is: ", tmp1)
-    print (f1.len())
+    s1 = sb.begin().add(String("Ken")).add(String("Alice")).add(String("Bob")).build()
+    s2 = sb.begin().add(String("Ken")).add(String("Alice")).add(String("Bob")).build()
+    s3 = sb.begin().add(String("Ken")).add(String("Alice")).add(String("Bob")). \
+        add(String("Ken")).add(String("Alice")).add(String("Bob")).build().build() # is that possible?
+    s4 = sb.begin().begin().add(String("Ken")).add(String("Alice")).add(String("Bob")).build().build()
     
-    print(TEST_STR)
 
-    testcase1()
+    
 
     
     

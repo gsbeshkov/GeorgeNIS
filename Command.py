@@ -2,7 +2,7 @@
 import os
 import subprocess
 
-from class3 import ErrorCodes
+from ErrorCodes import ErrorCodes
 
 '''
 https://github.com/gsbeshkov/Data.git
